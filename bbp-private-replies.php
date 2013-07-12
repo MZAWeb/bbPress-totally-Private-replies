@@ -163,17 +163,16 @@ class BBP_Private_Replies {
 	 */
 	public function hide_reply( $content = '', $reply_id = 0 ) {
 
-		if( empty( $reply_id ) )
+		if ( empty( $reply_id ) )
 			$reply_id = get_the_ID();
 
-		if( $this->is_private( $reply_id ) ) {
+		if ( $this->is_private( $reply_id ) ) {
 
 			$current_user = wp_get_current_user();
 
-			$topic_author = bbp_get_topic_author_id();
 			$reply_author = bbp_get_reply_author_id( $reply_id );
 
-			if( $topic_author != $current_user->ID && $reply_author != $current_user->ID && current_user_can( 'publish_forums' ) == false ) {
+			if ( $reply_author != $current_user->ID && current_user_can( 'publish_forums' ) == false ) {
 
 				$content = __( 'This reply has been marked as private.', 'bbp_private_replies' );
 
