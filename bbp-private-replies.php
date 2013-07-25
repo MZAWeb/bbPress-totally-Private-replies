@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: bbPress - Private Replies
-Plugin URL: http://pippinsplugins.com/bbpress-private-replies
+Plugin Name: bbPress - Private Replies - Tribe's fork
+Plugin URL: https://github.com/MZAWeb/bbPress-totally-Private-replies
 Description: Allows users to set replies as private so that only the original poster and admins can see it
 Version: 1.0.7
 Author: Pippin Williamson and Remi Corson
@@ -39,7 +39,7 @@ class BBP_Private_Replies {
 		add_filter( 'the_excerpt', array( $this, 'hide_reply' ), 999 );
 
 		// prevent private replies from being sent in email subscriptions
-		add_filter( 'bbp_subscription_mail_message', array( $this, 'prevent_subscription_email' ), 10, 4 );
+		add_filter( 'bbp_subscription_mail_message', array( $this, 'prevent_subscription_email' ), 1000, 4 );
 
 		// add a class name indicating the read status
 		add_filter( 'post_class', array( $this, 'reply_post_class' ) );
